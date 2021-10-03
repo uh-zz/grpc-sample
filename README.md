@@ -1,8 +1,9 @@
 # grpc-sample
 
-this repo is sample to help you understand gRPC
+gRPC を理解するためのサンプルです。
 
 ## 構成
+
 ![image](https://user-images.githubusercontent.com/47747828/135745893-8eb009ca-bc1a-4bf0-83f9-457ce6fb8995.png)
 
 ## ディレクトリ
@@ -39,7 +40,6 @@ this repo is sample to help you understand gRPC
     ├── tmp
     └── vendor
 ```
-
 
 ## インストール
 
