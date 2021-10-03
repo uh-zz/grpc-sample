@@ -2,6 +2,45 @@
 
 this repo is sample to help you understand gRPC
 
+## 構成
+![image](https://user-images.githubusercontent.com/47747828/135745893-8eb009ca-bc1a-4bf0-83f9-457ce6fb8995.png)
+
+## ディレクトリ
+
+```
+.
+├── README.md
+├── go.mod
+├── go.sum
+├── pinger
+│   ├── client
+│   │   └── client.go
+│   ├── pinger // protocによって生成されるGoコード
+│   │   ├── pinger.pb.go
+│   │   └── pinger_grpc.pb.go
+│   └── server.go // gRPCサーバー
+├── proto
+│   └── pinger.proto // IDL
+└── server // gRPCスタブ
+    ├── Gemfile
+    ├── Gemfile.lock
+    ├── README.md
+    ├── Rakefile
+    ├── app
+    ├── bin
+    ├── config
+    ├── config.ru
+    ├── lib // protocによって生成されるRubyコード
+    │   ├── pinger_pb.rb
+    │   └── pinger_services_pb.rb
+    ├── log
+    ├── public
+    ├── test
+    ├── tmp
+    └── vendor
+```
+
+
 ## インストール
 
 - Ruby
