@@ -114,3 +114,43 @@ lib
 ├── pinger_services_pb.rb
 └── tasks
 ```
+
+### Controller から呼び出し
+
+```ruby
+def ping
+    pinger_stub = Pinger::Pinger::Stub.new('localhost:5300', :this_channel_is_insecure)
+
+    pong = pinger_stub.ping(Pinger::Empty.new)
+    render json: { pong: pong.text }
+end
+```
+
+### Rails を起動して URL にアクセス
+
+gRPC サーバー起動
+
+```
+pinger $ go run server.go
+2021/10/03 15:42:53 Pinger listening at [::]:5300
+```
+
+Rails スタブ起動
+
+```
+server $ bin/rails server
+```
+
+ブラウザからピン！
+
+```
+http://localhost:3000/ping
+```
+
+ポン
+
+```json
+{
+  "pong": "pong"
+}
+```
