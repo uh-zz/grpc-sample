@@ -1,12 +1,12 @@
 # grpc-sample
 
-gRPC を理解するためのサンプルです。
+this repo is sample to help you understand gRPC.
 
-## 構成
+# System
 
 ![image](https://user-images.githubusercontent.com/47747828/135745893-8eb009ca-bc1a-4bf0-83f9-457ce6fb8995.png)
 
-## ディレクトリ
+# Directory
 
 ```
 .
@@ -41,7 +41,7 @@ gRPC を理解するためのサンプルです。
     └── vendor
 ```
 
-## インストール
+# Install
 
 - Ruby
 - Go
@@ -59,9 +59,9 @@ grpc-sample $ protoc --version
 libprotoc 3.17.3
 ```
 
-### VSCode 拡張
+# VSCode Extention
 
-シンタックスハイライト、フォーマッターを入れる場合
+If you want syntax highlighting or code-formatter
 
 - vscode-proto3
 - Clang-Format
@@ -70,26 +70,26 @@ libprotoc 3.17.3
 grpc-sample $ brew install clang-format
 ```
 
-## proto ファイル定義
+# Definition `.proto`
 
-## Go の gRPC サーバー作成
+# Create a gRPC server in Go
 
 FYI: https://developers.google.com/protocol-buffers/docs/reference/go-generated#package
 
-Go 1.16 以降は以下のコマンドにて、Go コード生成プラグインをインストールする必要がある
+For Go 1.16 or later, you need to install the Go code generation plugin with the following command
 
 ```
 grpc-sample　$ go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
 grpc-sample　$ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 ```
 
-また、`pinger.proto`に以下のオプションを追加
+Also, add the following options to `pinger.proto`.
 
 ```proto
 option go_package = "./lib";
 ```
 
-### Go コードを自動生成
+# Auto Go code generation
 
 ```
 grpc-sample　$ protoc -I ./proto pinger.proto --go_out=./pinger --go-grpc_out=./pinger
@@ -102,34 +102,34 @@ pinger
 
 ```
 
-### Go サーバー起動
+# Start gRPC server in Go
 
 ```
 pinger $ go run server.go
 2021/10/03 15:42:53 Pinger listening at [::]:5300
 ```
 
-### Go のテストクライアントを作成してサーバー起動を確認
+# Create a client to check if the gRPC server is running
 
-サーバーを起動させておく
+Keep it running gRPC server
 
 ```
 pinger $ go run server.go
 2021/10/03 15:42:53 Pinger listening at [::]:5300
 ```
 
-クライアントからアクセス
+Access to client
 
 ```
 client $ go run client.go
 Pong: text:"pong"
 ```
 
-## Rails のスタブ作成
+# Create Stub in Rails
 
-### Rails のインストール
+# Install Rails
 
-Rails 5 の API モードで作成
+# Create in Rails 5 api mode
 
 ```
 server $ bundle init
@@ -138,7 +138,7 @@ server $ bundle exec rails new . --api -O
 server $ bin/rails server
 ```
 
-### Ruby コードを自動生成
+# Auto Ruby code generation
 
 ```
 server $ echo "gem 'grpc'" >> Gemfile
@@ -154,7 +154,7 @@ lib
 └── tasks
 ```
 
-### Controller から呼び出し
+# Invoke from Application Controller
 
 ```ruby
 def ping
@@ -165,28 +165,28 @@ def ping
 end
 ```
 
-### Rails を起動して URL にアクセス
+# Start Rails server and Access to URL
 
-gRPC サーバー起動
+Start gRPC server in Go
 
 ```
 pinger $ go run server.go
 2021/10/03 15:42:53 Pinger listening at [::]:5300
 ```
 
-Rails スタブ起動
+Start Stub in Rails
 
 ```
 server $ bin/rails server
 ```
 
-ブラウザからピン！
+Ping from Browser!
 
 ```
 http://localhost:3000/ping
 ```
 
-ポン
+Pong
 
 ```json
 {
