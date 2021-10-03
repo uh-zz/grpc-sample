@@ -62,3 +62,19 @@ grpc-sample　$ protoc -I ./proto pinger.proto --go_out=./pinger --go-grpc_out=.
 pinger $ go run server.go
 2021/10/03 15:42:53 Pinger listening at [::]:5300
 ```
+
+### Go のテストクライアントを作成してサーバー起動を確認
+
+サーバーを起動させておく
+
+```
+pinger $ go run server.go
+2021/10/03 15:42:53 Pinger listening at [::]:5300
+```
+
+クライアントからアクセス
+
+```
+client $ go run client.go
+Pong: text:"pong"
+```
