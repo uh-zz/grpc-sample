@@ -54,6 +54,13 @@ option go_package = "./pinger";
 
 ```
 grpc-sample　$ protoc -I ./proto pinger.proto --go_out=./pinger --go-grpc_out=./pinger
+grpc-sample　$ tree pinger
+pinger
+├── pinger
+│   ├── pinger.pb.go
+│   └── pinger_grpc.pb.go
+└── server.go
+
 ```
 
 ### Go サーバー起動
@@ -90,4 +97,20 @@ server $ bundle init
 server $ echo 'gem "rails", ">=5.2.2.1"' >> Gemfile
 server $ bundle exec rails new . --api -O
 server $ bin/rails server
+```
+
+### Ruby コードを自動生成
+
+```
+server $ echo "gem 'grpc'" >> Gemfile
+server $ echo "gem 'grpc-tools'" >> Gemfile
+server $ bundle install
+
+server $ bundle exec grpc_tools_ruby_protoc -I ../proto --ruby_out=lib --grpc_out=lib ../proto/pinger.proto
+
+server $ tree lib
+lib
+├── pinger_pb.rb
+├── pinger_services_pb.rb
+└── tasks
 ```
