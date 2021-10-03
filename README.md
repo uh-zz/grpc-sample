@@ -16,7 +16,7 @@ gRPC を理解するためのサンプルです。
 ├── pinger
 │   ├── client
 │   │   └── client.go
-│   ├── pinger // protocによって生成されるGoコード
+│   ├── lib // protocによって生成されるGoコード
 │   │   ├── pinger.pb.go
 │   │   └── pinger_grpc.pb.go
 │   └── server.go // gRPCサーバー
@@ -86,7 +86,7 @@ grpc-sample　$ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 また、`pinger.proto`に以下のオプションを追加
 
 ```proto
-option go_package = "./pinger";
+option go_package = "./lib";
 ```
 
 ### Go コードを自動生成
@@ -95,7 +95,7 @@ option go_package = "./pinger";
 grpc-sample　$ protoc -I ./proto pinger.proto --go_out=./pinger --go-grpc_out=./pinger
 grpc-sample　$ tree pinger
 pinger
-├── pinger
+├── lib
 │   ├── pinger.pb.go
 │   └── pinger_grpc.pb.go
 └── server.go

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pinger;
 
-option go_package = "./pinger";
+option go_package = "./lib";
 
 service Pinger {
     rpc Ping(Empty) returns (Pong) {}

@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/uh-zz/grpc-sample/pinger/pinger"
+	pinger "github.com/uh-zz/grpc-sample/pinger/lib"
 	"google.golang.org/grpc"
 )
 
