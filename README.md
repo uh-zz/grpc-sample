@@ -78,3 +78,16 @@ pinger $ go run server.go
 client $ go run client.go
 Pong: text:"pong"
 ```
+
+## Rails のスタブ作成
+
+### Rails のインストール
+
+Rails 5 の API モードで作成
+
+```
+server $ bundle init
+server $ echo 'gem "rails", ">=5.2.2.1"' >> Gemfile
+server $ bundle exec rails new . --api -O
+server $ bin/rails server
+```
